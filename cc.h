@@ -1,13 +1,18 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
 struct Point {
     double x, y;
+    friend std::ostream& operator<<(std::ostream& out, const Point& b);
 };
+
 
 struct Box {
     Point one, two, three, four;
+    friend std::ostream& operator<<(std::ostream& out, const Box& b);
 };
+
 
 class Image {
 

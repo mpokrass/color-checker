@@ -3,8 +3,20 @@
 #include <iostream>
 #include <fstream>
 
+std::ostream& operator<<(std::ostream& out, const Point& p) {
+
+    out << "(" << p.x << "," << p.y << ")";
+    return out;
+}
+
+std::ostream& operator<<(std::ostream& out, const Box& b) {
+    out << "[" << b.one << "," << b.two << ","
+        << b.three << "," << b.four << "]";
+    return out;
+}
+
 Image::Image(const std::string& name) : name_(name) {
-    std::ifstream in(name_ + "_macbeth.txt"); 
+    std::ifstream in("coordinates/" + name_ + "_macbeth.txt"); 
     in >> width_ >> height_;    
 
     Point p;
